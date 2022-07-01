@@ -23,6 +23,48 @@ body {
 
 }
 
+.form h2 {
+    font-family:"VT323";
+    font-size: 1.9rem;
+    text-align: center;
+    margin:0 0 1.25rem;
+    text-transform: uppercase;
+}
+
 .form {
     padding: 1.875rem 2.5rem;
 }
+
+.form-control {
+    margin-bottom: 0.625rem;
+    padding-bottom: 1.25rem;
+    position: relative;
+}
+
+.form-control label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 0.3125rem;
+}
+
+.form-control input{
+    border: 0.125rem;
+    border-radius: 0.25rem;
+    display: block;
+    width: 100%;
+    padding: 0.625rem;
+    font-size: 0.875rem;
+}
+.form-control input:focus {
+    outline: 0;
+    border: #737373 solid 0.125rem;
+}
+
+.form-control.sucesso input {
+    border: #2ecc71 solid 0.125rem;
+}
+
+.form-control.erro input {
+    border: #e74c3c solid 0.125rem;
+}
+
