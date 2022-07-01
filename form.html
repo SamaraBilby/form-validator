@@ -17,17 +17,36 @@
 
     <div class="container">
         <form id="form" class="form">
+            
             <h2>Faça seu cadastro conosco</h2>
+            
             <div class="form-control">
                 
                 <label for="nome-usuário">Nome:</label>
                 <input type="text" id="nome-usuario" placeholder="Coloque seu nome aqui!">
                 <small>Mensagem de Erro</small>
-
+            </div>
+            
+            <div class="form-control">
                 <label for="email-usuário">E-mail:</label>
-                <input type="text" id="email-usuario" placeholder="Coloque seu e-mail aqui!">
+                <input type="email" id="email-usuario" placeholder="Coloque seu e-mail aqui!">
                 <small>Mensagem de Erro</small>
             </div>
+            
+            <div class="form-control">   
+                <label for="senha-usuário">Cadastre sua senha:</label>
+                <input type="password" id="senha-usuario" placeholder="Coloque seu senha aqui!">
+                <small>Mensagem de Erro</small>
+            </div>
+            
+            <div class="form-control">
+                <label for="senha2-usuário">Confirme sua senha:</label>
+                <input type="password" id="senha2-usuario" placeholder="Confirme sua senha aqui!">
+                <small>Mensagem de Erro</small>
+            </div>
+
+            <button type="submit">Enviar</button>
+
         </form>
     </div>
     
