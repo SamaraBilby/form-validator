@@ -29,10 +29,31 @@ function emailValido(email){
 }
 
 
+function checkRequired(inputArr){
+    inputArr.forEach(function(input) {
+        if(input.value.trim() === ''){
+            mostraError(input, `${getFieldName(input)}, compo Obrigatório!`);
+        }
+        else {
+            mostraSucesso(input);
+        }
+    });
+};
+
+//Get field
+
+function getFieldName(input){
+     return input.id.charAt(0).toUpperCase() + input.id.slice(1);
+} 
+
+
+
 form.addEventListener("submit", function(e){
     e.preventDefault();
 
-    if(nomeUsuario.value === ""){
+    checkRequired([nomeUsuario, emailUsuario, senha, senha2]);
+
+   /* if(nomeUsuario.value === ""){
         mostraError(nomeUsuario,'Favor preencher o campo Nome!')
     } else {
         mostraSucesso(nomeUsuario);
@@ -59,5 +80,5 @@ form.addEventListener("submit", function(e){
         mostraError(senha2,'Favor confirme sua senha!')
     } else {
         mostraSucesso(senha2);
-    }
-})
+    }*/
+});
