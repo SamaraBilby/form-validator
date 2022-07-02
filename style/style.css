@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=VT323&display=swap');
 
+
+:root{
+    --sucesso-cor:#2ecc71;
+    --erro-cor:#e74c3c;
+}
+
 *{
     box-sizing: border-box;
 }
@@ -61,10 +67,37 @@ body {
 }
 
 .form-control.sucesso input {
-    border: #2ecc71 solid 0.125rem;
+    border:var(--sucesso-cor)  solid 0.125rem;
 }
 
 .form-control.erro input {
-    border: #e74c3c solid 0.125rem;
+    border: var(--erro-cor)  solid 0.125rem;
 }
 
+.form-control small{
+    color: var(--erro-cor);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    visibility: hidden;
+}
+.form-control.erro small{
+    visibility: visible;
+}
+
+.form button{
+    display: block;
+    cursor: pointer;
+    
+    font-size: 1.2rem;
+    font-family:"VT323";
+    letter-spacing: 0.09rem;
+    
+    width: 100%;
+    margin-top: 1.25rem;
+    padding: 0.5rem;
+    background-color: rgba(255, 255, 255, 0.474);
+    border: 0.05rem solid rgba(255, 255, 255, 0.474);
+    border-radius: 2%;
+
+}
