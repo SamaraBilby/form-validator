@@ -22,10 +22,14 @@ function mostraSucesso(input){
 
 // validando o e-mail
 
-function emailValido(email){
+function checkEmail(input){
     const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-
-   return re.test(String(emailUsuario).toLowerCase());
+    if(re.test(input.value.trim())) {
+        mostraSucesso(input);
+    } 
+    else {
+        mostraError(input, "E-mail não é válido!")
+    }
 }
 
 
@@ -46,13 +50,43 @@ function getFieldName(input){
      return input.id.charAt(0).toUpperCase() + input.id.slice(1);
 } 
 
+// check input
+
+function checkLength(input, min, max){
+    if(input.value.length < min){
+        mostraError(input, `${getFieldName(input)} precisa ter no mínimo ${min} caracteres`);
+    }
+    else if (input.value.length > max) {
+        mostraError(input, `${getFieldName(input)} não poder mais ${max} caracteres`);
+    }
+    else {
+        mostraSucesso(input);
+    }
+}
+
+// verificação se a senha é igual a confirmação de senha. 
+
+function checkSeSenhasSaoIgauis(input1, input2) {
+    if(input1.value !== input2.value) {
+        mostraError(input2, "Senhas não são iguais!")
+    }
+
+}
+
 
 
 form.addEventListener("submit", function(e){
     e.preventDefault();
 
     checkRequired([nomeUsuario, emailUsuario, senha, senha2]);
+    checkLength(nomeUsuario, 3, 15);
+    checkLength(senha, 6, 25);
+    checkEmail(emailUsuario);
+    checkSeSenhasSaoIgauis(senha, senha2);
 
+
+    // código inicial
+    
    /* if(nomeUsuario.value === ""){
         mostraError(nomeUsuario,'Favor preencher o campo Nome!')
     } else {
